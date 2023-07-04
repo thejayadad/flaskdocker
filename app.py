@@ -23,6 +23,10 @@ def index():
 def login():
     return render_template("./login.html", login=False)
 
+@app.route('/classes')
+def classes():
+    return render_template("./classes.html", login=False)
+
 
 if __name__=='__main__':
     app.run(host="0.0.0.0", port=5000)
