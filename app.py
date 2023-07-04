@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
 import pymongo
 from pymongo import MongoClient
+from flask import render_template
+
 
 app = Flask(__name__)
 
@@ -14,8 +16,12 @@ def get_db():
     return db
 
 @app.route('/')
-def ping_server():
-    return "Welcome to the Yoga Spot."
+def index():
+    return render_template("./index.html", login=False)
+
+@app.route('/login')
+def login():
+    return render_template("./login.html", login=False)
 
 
 if __name__=='__main__':
