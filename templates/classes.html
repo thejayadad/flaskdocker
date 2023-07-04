@@ -4,6 +4,7 @@
 {% block content %}
 
 <h2>Class Offerings</h2>
+<h3>Season: {{term}}</h3>
 <div>
     <table>
         <thead>
@@ -14,13 +15,24 @@
             <th>Enroll</th>
         </thead>
         <tbody>
+            {% for data in classData %}
+
             <tr>
-            <td>101</td>
-            <td>Hot Yoga</td>
-            <td>Jammin Tammy</td>
-            <td>30 mins</td>
-            <td>101</td>
+            <td >{{ data["classID"] }}</td>
+            <td>{{ data["title"] }}</td>
+            <td>{{ data["instructor"] }}</td>
+            <td>{{ data["duration"] }}</td>
+            <td>
+                <form action="{{url_for('enrollment')}}" method="GET">
+                    <input type="hidden" name="classID" value="{{data['classID']}}">
+                    <input type="hidden" name="title" value="{{data['title']}}">
+                    <input type="hidden" name="instructor" value="{{data['instructor']}}">
+                <button>Enroll</button>
+            </form>
+
+            </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

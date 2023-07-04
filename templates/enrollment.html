@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }} </h2>
+
+<!-- {% if not classes %}
+<h1>You are not enrolled in any class.</h1>
+{% else %} -->
+<h2>Upcoming Classes:</h2>
+
+<div>
+    <table>
+        <thead>
+            <th>ClassID</th>
+            <th>Title</th>
+            <th>Instructor</th>
+            <th>Duration</th>
+            <th>Enroll</th>
+        </thead>
+        <tbody>
+            <!-- {% for class in classes %} -->
+            <!-- <tr>
+                <td scope='row'>{{ class.r2["classID"] }}</td>
+                <td>{{ class.r2["title"] }}</td>
+                <td>{{ class.r2["instructor"] }}</td>
+            </tr> -->
+            <p>ClassId: {{data.id}}</p>
+            <p>Class Title: {{data.title}}</p>
+            <p>Class Instructor: {{data.instructor}}</p>
+            <!-- {% endfor %} -->
+        </tbody>
+
+        </table>   
+        <!-- {% endif %} -->
+
+        </div>
+        {% endblock %}
